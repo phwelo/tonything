@@ -19,18 +19,17 @@ resource "aws_security_group" "codesamplesg1" {
   description = "Security group for codesample1"
   vpc_id      = var.vpc_id
   ingress {
-      description   = "Open"
-      from_port     = "80"
-      to_port       = "80"
-      protocol      = "tcp"
-      cidr_blocks   = [var.ingress_cidr]
+    description   = "HTTP"
+    from_port     = "80"
+    to_port       = "80"
+    protocol      = "tcp"
+    cidr_blocks   = [var.ingress_cidr]
   }
   egress {
-    from_port        = 0
-    to_port          = 0
-    protocol         = "-1"
-    cidr_blocks      = ["0.0.0.0/0"]
-    ipv6_cidr_blocks = ["::/0"]
+    from_port     = 0
+    to_port       = 0
+    protocol      = "-1"
+    cidr_blocks   = [var.egress_cidr]
   }
 }
 
@@ -38,18 +37,17 @@ resource "aws_security_group" "codesamplesg2" {
   description = "Security group for codesample2"
   vpc_id      = var.vpc_id
   ingress {
-      description   = "Open"
-      from_port     = "44444"
-      to_port       = "44444"
-      protocol      = "tcp"
-      cidr_blocks   = [var.ingress_cidr]
+    description   = "Only 44444"
+    from_port     = "44444"
+    to_port       = "44444"
+    protocol      = "tcp"
+    cidr_blocks   = [var.ingress_cidr]
   }
   egress {
-    from_port        = 0
-    to_port          = 0
-    protocol         = "-1"
-    cidr_blocks      = ["0.0.0.0/0"]
-    ipv6_cidr_blocks = ["::/0"]
+    from_port     = 0
+    to_port       = 0
+    protocol      = "-1"
+    cidr_blocks   = [var.egress_cidr]
   }
 }
 
