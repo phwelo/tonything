@@ -45,6 +45,6 @@ module "ec2_instance" {
   ami                         = data.aws_ami.amazon_linux.id
   instance_type               = "t2.micro"
   subnet_id                   = var.subnet_id
-  vpc_security_group_ids      = [module.security_group.security_group1, module.security_group.security_group2]
+  vpc_security_group_ids      = [module.security_group1, module.security_group2]
   associate_public_ip_address = true
 }
