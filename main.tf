@@ -41,9 +41,7 @@ resource "aws_security_group" "codesamplesg2" {
     from_port     = "44444"
     to_port       = "44444"
     protocol      = "tcp"
-    security_groups = [
-      "${aws_security_group.codesamplesg1.id}",
-    ]
+    security_groups = [aws_security_group.codesamplesg1.id]
   }
   egress {
     from_port     = 0
